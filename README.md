@@ -66,6 +66,9 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 
     # criar um módulo chamado players
     nest g players
+
+    # criar um controller chamado players
+    nest g controller players
   ```
 </details>
 
