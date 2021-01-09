@@ -1,6 +1,8 @@
 # Curso: Microservices em Node.js com NestJS e RabbitMQ
 
-Neste repositório estão armazenados os códigos desenvolvidos ao londo do curso Microservices em Node.js com NestJS e RabbitMQ, feito na Udemy.
+Neste repositório estão armazenados os códigos desenvolvidos ao londo do curso: Microservices em Node.js com NestJS e RabbitMQ, feito na Udemy.
+
+Além dessas tecnologias, o próprio estudo do NestJS e sua estrutura engloba diversos conceitos ligados ao SOLID, portanto a medida que alguns termos forem apresentados nas aulas irei atualizar este *README.md* para servir como uma fonte de estudos posteriormente.
 
 Tecnologias utilizadas:
 
@@ -15,8 +17,6 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 
 <details>
   <summary>Entendendo a aplicação</summary>
-
-  **Domínio da aplicação**
 
   Uma aplicação que será utilizada por jogadores amadores de tênis. Estes jogadores fazem parte de um ranking que é atualizado conforme realização das partidas. Atualmente este ranking é controlado de forma manual, e o organizador nos procurou para desenvolver uma aplicação que modernize o controle, visando incentivar quem já participa, bem como disponibilizar um atrativo para novos jogadores.
 
@@ -69,7 +69,51 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 
     # criar um controller chamado players
     nest g controller players
+
+    # criar um service
+    nest g service players
   ```
+</details>
+
+<details>
+  <summary>Modules</summary>
+
+  Uma aplicação NestJS é organizada em módulos (modules). Toda aplicação NestJS tem pelo menos um módulo, que é o *root module*. É o "starting-point" da aplicação.
+
+  Um módulo é definido quando anotamos uma classe com o *decorator* **@Module()**, e é um singleton.
+
+  Este decorator recupera um objeto que descreve o módulo, usando as seguintes propriedades:
+
+  * Providers: Array de providers que devem estar disponíveis dentro do módulo via injeção de dependências;
+  * Controllers: Devem ser instanciados dentro do módulo;
+  * Exports: Providers que devem ser exportados para outros módulos;
+  * Imports: Lista de módulos necessários para uso no módulo atual.
+</details>
+
+<details>
+  <summary>Controllers</summary>
+
+  Estes componentes são responsáveis por lidar com as requisições e retornar as respostas para o cliente.
+
+  Um controller é definido quando anotamos uma classe com o *decorator* **@Controller()**, que pode receber um *path* representando a rota relacionada com aquele controller.
+
+  Possuem *handlers* que lidam diretamente com métodos HTTP (GET, POST, DELETE, PUT, etc). Estes *handlers* são métodos implementados dentro da classe controller, que são anotados com os decorators relacionados a cada verbo HTTP.
+</details>
+
+<details>
+  <summary>Providers e Services</summary>
+
+  **Providers**
+
+  Os providers são elementos injetados dentro de construtores automaticamente, quando encontra-se o *decorator* **@Injectable()**, podendo ser uma classe, sync/async factory, etc.
+
+  Providers devem ser fornecidos por um módulo para se tornarem utilizáveis.
+
+  **Services**
+  
+  São definidos como providers, porém, nem todos providers são services. São singleton quando empacotados com **@Injectable()** e fornecidos a um módulo. Ou seja, uma mesma instância será compartilhada em toda a aplicação.
+
+  É a principal fonte de lógica de negócios.
 </details>
 
 ---
