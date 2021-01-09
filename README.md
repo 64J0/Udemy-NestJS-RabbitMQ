@@ -116,5 +116,38 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
   É a principal fonte de lógica de negócios.
 </details>
 
+<details>
+  <summary>Injeção de dependências</summary>
+
+  O NestJS utiliza o *pattern* de injeção de dependências para injetar código automaticamente em classes que nós criamos, adicionando **Providers** ou **Services** no método construtor de um **Controller**.
+
+  A *injeção de dependências* é uma técnica de Inversão de Controler (**IoC**), na qual delegamos a instanciação de dependências para o **IoC Container** (que neste projetos erá o NestJS), ao invés de fazermos em nosso próprio código de forma imperativa. 
+
+  Existem três etapas no fluxo de injeção de dependências do NestJS:
+
+  1. No **Service** que será injetado, o decorator **@Injectable** define que a classe pode ser gerenciada pelo **Nest IoC Container**.
+
+  2. No **Controller** declaramos uma dependência do **Service** que deve ser injetado, passando essa informação nos atributos de instanciação do construtor do **Controller**.
+
+  ```typescript
+    constructor(private readonly service: Service) {}
+  ```
+
+  3. No arquivo raiz do módulo nós definimos no array de providers o **Service** que desejamos injetar no **Controller**.
+
+  ```typescript
+    @Module({
+      controllers: [Controller],
+      providers: [Service]
+    })
+  ```
+
+  Desta forma quando o **Nest IoC Container** instancia um **Controller**, ele primeiro procura por quaisquer dependências.
+  
+  Quando o container encontra a dependência do **Service** ele realiza uma pesquisa pelo token do **Service**, que retorna a classe deste.
+
+  Por fim, assumindo o escopo SINGLETON (comportamento padrão), o NestJS cria uma instância do **Service**, armazena em cache e a retorna, ou, se já estiver alguma instância deste **Service** em cache, retorna essa instância já existente.
+</details>
+
 ---
 2021, Vinícius Gajo Marques Oliveira
