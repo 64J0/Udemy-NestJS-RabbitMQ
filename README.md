@@ -149,5 +149,27 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
   Por fim, assumindo o escopo SINGLETON (comportamento padrão), o NestJS cria uma instância do **Service**, armazena em cache e a retorna, ou, se já estiver alguma instância deste **Service** em cache, retorna essa instância já existente.
 </details>
 
+<details>
+  <summary>Fluxo de uma requisição HTTP no NestJS:</summary>
+
+  1. *Request* HTTP é recebida;
+  2. Essa *request* é roteada para o **Controller**, que chama o handler com os argumentos configurados;
+  3. Handler manipula a requisição, executando operações com os **Services**;
+  4. Por fim o Handler encaminha o resultado da aplicação do **Service** ao cliente.
+
+  ### NestJS Pipes
+
+  Atuam nos argumentos que serão processados pelo route handler antes deste handler ser chamado. **Pipes podem executar transformação e validação de dados, podendo lançar exceções.** As exceções são manipuladas pelo NestJS e retornadas em uma resposta de erro para o cliente. 
+
+  O NestJS disponibiliza pipes muito úteis dentro do próprio módulo **@nestjs/common**:
+
+  * ValidationPipe
+  * ParseIntPipe
+  * ParseBoolPipe
+  * ParseArrayPipe
+  * ParseUUIDPipe
+  * DefaultValuePipe
+</details>
+
 ---
 2021, Vinícius Gajo Marques Oliveira
