@@ -16,7 +16,7 @@ Tecnologias utilizadas:
 Abaixo seguem algumas informações mais detalhadas a respeito da aplicação desenvolvida, assim como alguns conhecimentos adquiridos nas aulas.
 
 <details>
-  <summary>Entendendo a aplicação</summary>
+  <summary>Entendendo a aplicação:</summary>
 
   Uma aplicação que será utilizada por jogadores amadores de tênis. Estes jogadores fazem parte de um ranking que é atualizado conforme realização das partidas. Atualmente este ranking é controlado de forma manual, e o organizador nos procurou para desenvolver uma aplicação que modernize o controle, visando incentivar quem já participa, bem como disponibilizar um atrativo para novos jogadores.
 
@@ -49,7 +49,7 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 </details>
 
 <details>
-  <summary>Iniciando a aplicação</summary>
+  <summary>Iniciando a aplicação:</summary>
 
   Para iniciar o desenvolvimento da aplicação devemos ter previamente instalado o Node.js e o NPM. Então basta executar os seguintes comandos no terminal:
 
@@ -76,7 +76,7 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 </details>
 
 <details>
-  <summary>Modules</summary>
+  <summary>Modules:</summary>
 
   Uma aplicação NestJS é organizada em módulos (modules). Toda aplicação NestJS tem pelo menos um módulo, que é o *root module*. É o "starting-point" da aplicação.
 
@@ -91,7 +91,7 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 </details>
 
 <details>
-  <summary>Controllers</summary>
+  <summary>Controllers:</summary>
 
   Estes componentes são responsáveis por lidar com as requisições e retornar as respostas para o cliente.
 
@@ -101,7 +101,7 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 </details>
 
 <details>
-  <summary>Providers e Services</summary>
+  <summary>Providers e Services:</summary>
 
   **Providers**
 
@@ -117,7 +117,7 @@ Abaixo seguem algumas informações mais detalhadas a respeito da aplicação de
 </details>
 
 <details>
-  <summary>Injeção de dependências</summary>
+  <summary>Injeção de dependências:</summary>
 
   O NestJS utiliza o *pattern* de injeção de dependências para injetar código automaticamente em classes que nós criamos, adicionando **Providers** ou **Services** no método construtor de um **Controller**.
 

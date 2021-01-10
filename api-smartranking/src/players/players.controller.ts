@@ -22,7 +22,7 @@ export class PlayersController {
     @Query('email') email: string
   ): Promise<Player[] | Player> {
     if (email) {
-      return this.playersService.getPlayer(email);
+      return this.playersService.getPlayerByEmail(email);
     }
 
     return this.playersService.getAllPlayers();
